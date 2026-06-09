@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1241.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="examenFinal.controller.MainController">
+   <children>
+      <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="800.0" prefWidth="1200.0">
+         <top>
+            <Label text="SISTEMA DE GESTIÓN - GAMEZONE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </top>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <center>
+            <TabPane prefHeight="747.0" prefWidth="1180.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Videojuegos">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="14.0" layoutY="4.0" prefHeight="735.0" prefWidth="485.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Título" />
+                                    <TextField fx:id="txtTitle" prefHeight="25.0" prefWidth="390.0" />
+                                    <Label layoutX="10.0" layoutY="10.0" text="Plataforma" />
+                                    <TextField fx:id="txtPlatform" layoutX="10.0" layoutY="27.0" />
+                                    <Label layoutX="10.0" layoutY="52.0" text="Precio" />
+                                    <TextField fx:id="txtPrice" layoutX="10.0" layoutY="69.0" />
+                                    <Label layoutX="10.0" layoutY="94.0" text="Stock" />
+                                    <TextField fx:id="txtStock" layoutX="10.0" layoutY="111.0" />
+                                    <Label layoutX="10.0" layoutY="136.0" text="Tamaño GB" />
+                                    <TextField fx:id="txtSizeGB" layoutX="10.0" layoutY="153.0" prefHeight="25.0" prefWidth="409.0" />
+                                    <CheckBox fx:id="chkUsed" mnemonicParsing="false" text="usado" />
+                                    <RadioButton fx:id="rbDigital" mnemonicParsing="false" text="Digital" />
+                                    <RadioButton fx:id="rbPhysical" mnemonicParsing="false" text="Físico" />
+                                    <HBox prefHeight="36.0" prefWidth="465.0" spacing="10.0">
+                                       <children>
+                                           <Button fx:id="btnAdd"
+                                                   mnemonicParsing="false"
+                                                   text="Agregar"
+                                                   onAction="#addVideoGame" />
+                                          <Button fx:id="btnUpdate" mnemonicParsing="false" text="Actualizar" />
+                                          <Button fx:id="btnDelete" mnemonicParsing="false" text="Eliminar" />
+                                          <Button fx:id="btnList" mnemonicParsing="false" text="Listar" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <TableView fx:id="tblGames" prefHeight="241.0" prefWidth="465.0">
+                                      <columns>
+                                        <TableColumn fx:id="colTitle" prefWidth="122.0" text="Título" />
+                                        <TableColumn fx:id="colPlatform" prefWidth="94.0" text="Plataforma" />
+                                          <TableColumn fx:id="colPrice" prefWidth="83.0" text="Precio" />
+                                          <TableColumn fx:id="colStock" minWidth="3.0" prefWidth="67.0" text="Stock" />
+                                          <TableColumn fx:id="colType" prefWidth="89.0" text="Tipo" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Buscar">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="14.0" layoutY="14.0" prefHeight="706.0" prefWidth="485.0" spacing="15.0">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Buscar por título" />
+                                    <TextField fx:id="txtSearchTitle" />
+                                    <Button fx:id="btnSearchTitle" mnemonicParsing="false" text="Buscar Título" />
+                                    <TextArea fx:id="txtAreaTitleResult" prefHeight="150.0" prefWidth="465.0" />
+                                    <Label layoutX="20.0" layoutY="20.0" text="Buscar por plataforma" />
+                                    <TextField fx:id="txtSearchPlatform" layoutX="20.0" />
+                                    <Button fx:id="btnSearchPlatform" layoutX="20.0" layoutY="92.0" mnemonicParsing="false" text="Buscar Plataforma" />
+                                    <TextArea fx:id="txtAreaPlatformResult" layoutX="20.0" layoutY="132.0" prefHeight="150.0" prefWidth="465.0" />
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Ventas">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="22.0" layoutY="14.0" text="Título del videojuego">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="txtSaleTitle" layoutX="22.0" layoutY="51.0" prefHeight="25.0" prefWidth="359.0" />
+                              <Label layoutX="22.0" layoutY="87.0" text="Cantidad">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="txtSaleQuantity" layoutX="22.0" layoutY="124.0" prefHeight="25.0" prefWidth="359.0" />
+                              <Button fx:id="btnSale" layoutX="22.0" layoutY="171.0" mnemonicParsing="false" text="Realizar Venta" />
+                              <TableView fx:id="tblSales" layoutX="22.0" layoutY="221.0" prefHeight="200.0" prefWidth="364.0">
+                                <columns>
+                                  <TableColumn fx:id="colSaleTitle" prefWidth="114.0" text="Título" />
+                                  <TableColumn fx:id="colSaleQuantity" prefWidth="56.0" text="Cantidad" />
+                                    <TableColumn fx:id="colSaleTotal" prefWidth="114.0" text="Valor Total" />
+                                    <TableColumn fx:id="colSaleDate" prefWidth="79.0" text="Fecha" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
