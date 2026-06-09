@@ -7,45 +7,32 @@ import java.util.List;
 
 public class VideoGameService {
 
-    private VideoGameRepository repository;
+    private final VideoGameRepository repository;
 
     public VideoGameService() {
-        repository = new VideoGameRepository();
+        this.repository = new VideoGameRepository();
     }
 
-    // CREATE
     public void addVideoGame(VideoGame game) {
-
-        if (game.getTitle() == null ||
-                game.getTitle().trim().isEmpty()) {
-
-            throw new RuntimeException(
-                    "El título es obligatorio");
+        if (game.getTitle() == null || game.getTitle().trim().isEmpty()) {
+            throw new RuntimeException("El título es obligatorio");
         }
 
         if (game.getPrice() <= 0) {
-
-            throw new RuntimeException(
-                    "El precio debe ser mayor que 0");
+            throw new RuntimeException("El precio debe ser mayor que 0");
         }
 
         if (game.getStock() < 0) {
-
-            throw new RuntimeException(
-                    "El stock no puede ser negativo");
+            throw new RuntimeException("El stock no puede ser negativo");
         }
 
-        if (repository.findByTitle(
-                game.getTitle()) != null) {
-
-            throw new RuntimeException(
-                    "El videojuego ya existe");
+        if (repository.findByTitle(game.getTitle()) != null) {
+            throw new RuntimeException("El videojuego ya existe");
         }
 
         repository.save(game);
     }
 
-    // READ
     public List<VideoGame> getAllGames() {
         return repository.findAll();
     }
@@ -54,15 +41,15 @@ public class VideoGameService {
         return repository.findByTitle(title);
     }
 
-    // DELETE
     public boolean deleteGame(String title) {
         return repository.delete(title);
     }
 
-    // UPDATE
-    public boolean updateGame(String title,
-                              VideoGame newGame) {
-
+    public boolean updateGame(String title, VideoGame newGame) {
         return repository.update(title, newGame);
+    }
+
+    public List<VideoGame> findByPlatform(String platform) {
+        return repository.findByPlatform(platform);
     }
 }

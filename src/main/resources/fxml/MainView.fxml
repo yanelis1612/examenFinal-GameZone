@@ -58,8 +58,13 @@
                                                    mnemonicParsing="false"
                                                    text="Agregar"
                                                    onAction="#addVideoGame" />
-                                          <Button fx:id="btnUpdate" mnemonicParsing="false" text="Actualizar" />
-                                          <Button fx:id="btnDelete" mnemonicParsing="false" text="Eliminar" />
+                                           <Button fx:id="btnUpdate"
+                                                   mnemonicParsing="false"
+                                                   text="Actualizar"
+                                                   onAction="#updateVideoGame" />
+                                           <Button fx:id="btnDelete"
+                                                   text="Eliminar"
+                                                   onAction="#deleteVideoGame"/>
                                           <Button fx:id="btnList" mnemonicParsing="false" text="Listar" />
                                        </children>
                                        <padding>
@@ -94,11 +99,15 @@
                                  <children>
                                     <Label text="Buscar por título" />
                                     <TextField fx:id="txtSearchTitle" />
-                                    <Button fx:id="btnSearchTitle" mnemonicParsing="false" text="Buscar Título" />
+                                     <Button fx:id="btnSearchTitle"
+                                             text="Buscar Título"
+                                             onAction="#searchByTitle"/>
                                     <TextArea fx:id="txtAreaTitleResult" prefHeight="150.0" prefWidth="465.0" />
                                     <Label layoutX="20.0" layoutY="20.0" text="Buscar por plataforma" />
                                     <TextField fx:id="txtSearchPlatform" layoutX="20.0" />
-                                    <Button fx:id="btnSearchPlatform" layoutX="20.0" layoutY="92.0" mnemonicParsing="false" text="Buscar Plataforma" />
+                                     <Button fx:id="btnSearchPlatform"
+                                             text="Buscar Plataforma"
+                                             onAction="#searchByPlatform" />
                                     <TextArea fx:id="txtAreaPlatformResult" layoutX="20.0" layoutY="132.0" prefHeight="150.0" prefWidth="465.0" />
                                  </children>
                               </VBox>
@@ -121,7 +130,12 @@
                                  </padding>
                               </Label>
                               <TextField fx:id="txtSaleQuantity" layoutX="22.0" layoutY="124.0" prefHeight="25.0" prefWidth="359.0" />
-                              <Button fx:id="btnSale" layoutX="22.0" layoutY="171.0" mnemonicParsing="false" text="Realizar Venta" />
+                               <Button fx:id="btnSale"
+                                       layoutX="22.0"
+                                       layoutY="171.0"
+                                       mnemonicParsing="false"
+                                       text="Realizar Venta"
+                                       onAction="#processSale" />
                               <TableView fx:id="tblSales" layoutX="22.0" layoutY="221.0" prefHeight="200.0" prefWidth="364.0">
                                 <columns>
                                   <TableColumn fx:id="colSaleTitle" prefWidth="114.0" text="Título" />
